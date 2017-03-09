@@ -6,11 +6,13 @@ public class CardGameTest{
 
   Card card1;
   Card card2;
+  Deck deck;
 
   @Before
   public void before(){
     card1 = new Card(CardSuit.SPADES, CardValue.ACE);
     card2 = new Card(CardSuit.HEARTS, CardValue.TEN);
+    deck = new Deck();
   }
 
   @Test
@@ -26,6 +28,11 @@ public class CardGameTest{
   @Test
   public void testCardHasName(){
     assertEquals("ace", card1.getValueName());
+  }
+
+  @Test
+  public void testDeckStartsEmpty(){
+    assertEquals(0, deck.size());
   }
 
 }
