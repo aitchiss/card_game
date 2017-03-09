@@ -35,4 +35,10 @@ public class CardGameTest{
     assertEquals(0, deck.size());
   }
 
+  @Test
+  public void canAddToDeck(){
+    deck.addToDeck(card1);
+    assertEquals(1, deck.size());
+  }
+
 }
