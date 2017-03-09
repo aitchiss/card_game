@@ -41,4 +41,10 @@ public class CardGameTest{
     assertEquals(1, deck.size());
   }
 
+  @Test
+  public void canDealCard(){
+    deck.addToDeck(card1);
+    assertEquals(card1, deck.dealCard());
+  }
+
 }
