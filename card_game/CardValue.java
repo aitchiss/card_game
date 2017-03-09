@@ -24,4 +24,8 @@ public enum CardValue{
   public int cardValue(){
     return this.numberValue;
   }
+
+  public String valueName(){
+    return name().toLowerCase();
+  }
 }
