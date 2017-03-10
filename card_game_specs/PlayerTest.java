@@ -6,6 +6,7 @@ public class PlayerTest{
 
   Player player;
 
+
   @Before
   public void before(){
     player = new Player("Computer");
@@ -14,6 +15,11 @@ public class PlayerTest{
   @Test
   public void playerHasName(){
     assertEquals("Computer", player.getName());
+  }
+
+  @Test
+  public void playerStartsWithEmptyHand(){
+    assertEquals(0, player.getHand().cardsInHand());
   }
 
 }

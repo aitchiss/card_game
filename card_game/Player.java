@@ -14,4 +14,8 @@ public class Player{
     return this.name;
   }
 
+  public Hand getHand(){
+    return this.hand;
+  }
+
 }
