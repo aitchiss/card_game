@@ -6,14 +6,21 @@ public class DeckTest{
 
   Card card1;
   Card card2;
+  Card card3;
+  Card card4;
   Deck deck;
+  Deck deck2;
   Hand hand;
 
   @Before
   public void before(){
     card1 = new Card(CardSuit.SPADES, CardValue.ACE);
     card2 = new Card(CardSuit.HEARTS, CardValue.TEN);
+    card3 = new Card(CardSuit.CLUBS, CardValue.TWO);
+    card4 = new Card(CardSuit.DIAMONDS, CardValue.QUEEN);
     deck = new Deck();
+    deck2 = new Deck();
+    
    
   }
 
@@ -36,6 +43,6 @@ public class DeckTest{
     assertEquals(card1, deck.dealCard());
   }
 
-
+ 
 
 }

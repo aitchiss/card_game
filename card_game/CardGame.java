@@ -25,6 +25,7 @@ public class CardGame{
         this.deck.addToDeck(card);
       }
     }
+    this.deck.shuffle();
 
   }
 

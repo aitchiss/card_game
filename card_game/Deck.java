@@ -20,4 +20,8 @@ public class Deck{
   public Card dealCard(){
     return deckCards.remove(0);
   }
+
+  public void shuffle(){
+    Collections.shuffle(deckCards);
+  }
 }
