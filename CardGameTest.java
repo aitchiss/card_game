@@ -7,12 +7,14 @@ public class CardGameTest{
   Card card1;
   Card card2;
   Deck deck;
+  Hand hand;
 
   @Before
   public void before(){
     card1 = new Card(CardSuit.SPADES, CardValue.ACE);
     card2 = new Card(CardSuit.HEARTS, CardValue.TEN);
     deck = new Deck();
+    hand = new Hand();
   }
 
   @Test
@@ -45,6 +47,11 @@ public class CardGameTest{
   public void canDealCard(){
     deck.addToDeck(card1);
     assertEquals(card1, deck.dealCard());
+  }
+
+  @Test
+  public void handStartsEmpty(){
+    assertEquals(0, hand.cardsInHand());
   }
 
 }
