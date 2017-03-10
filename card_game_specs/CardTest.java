@@ -8,8 +8,7 @@ public class CardTest{
 
   Card card1;
   Card card2;
-  Deck deck;
-  Hand hand;
+  
 
   @Before
   public void before(){

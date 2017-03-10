@@ -14,6 +14,7 @@ public enum CardValue{
   JACK(11),
   QUEEN(12),
   KING(13);
+  //just use logic in ruleset to return correct value for blackjack
 
   private int numberValue;
 
