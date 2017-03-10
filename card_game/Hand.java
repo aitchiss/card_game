@@ -17,4 +17,8 @@ public class Hand{
     return this.currentHand.size();
   }
 
+  public Card removeCard(){
+    return this.currentHand.remove(0);
+  }
+
 }

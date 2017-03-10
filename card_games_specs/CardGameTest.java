@@ -54,4 +54,10 @@ public class CardGameTest{
     assertEquals(0, hand.cardsInHand());
   }
 
+  @Test
+  public void handCanAddCard(){
+    hand.addToHand(card1);
+    assertEquals(1, hand.cardsInHand());
+  }
+
 }
