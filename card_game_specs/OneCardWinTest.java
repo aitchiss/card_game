@@ -15,5 +15,10 @@ public class OneCardWinTest{
   public void gameHasTwoPlayers(){
     assertEquals(2, ruleSet.numberOfPlayers());
   }
+
+  @Test
+  public void initialHandSizeDefined(){
+    assertEquals(1, ruleSet.getInitialHandSize());
+  }
   
 }
