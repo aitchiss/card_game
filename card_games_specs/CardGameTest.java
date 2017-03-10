@@ -60,4 +60,11 @@ public class CardGameTest{
     assertEquals(1, hand.cardsInHand());
   }
 
+  @Test
+  public void handCanRemoveCard(){
+    hand.addToHand(card1);
+    hand.removeCard();
+    assertEquals(0, hand.cardsInHand());
+  }
+
 }
