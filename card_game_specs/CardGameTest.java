@@ -14,10 +14,17 @@ public class CardGameTest{
   }
   
 
-
   @Test
   public void setupCreatesTwoPlayersForOneCardWin(){
     cardGame.setup();
     assertEquals(2, cardGame.countPlayers());
   }
+
+  @Test
+  public void setupCreatesDeck(){
+    cardGame.setup();
+    assertEquals(52, cardGame.getDeck().size());
+  }
+
+
 }
