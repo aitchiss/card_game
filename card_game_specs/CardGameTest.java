@@ -32,5 +32,11 @@ public class CardGameTest{
     assertEquals(50, cardGame.getDeck().size());
   }
 
+  @Test
+  public void setupDealIncreasesPlayerHand(){
+    cardGame.setup();
+    assertEquals(1, cardGame.getPlayer(1).getHand().cardsInHand());
+  }
+
 
 }

@@ -53,6 +53,10 @@ public class CardGame{
     return this.players.size();
   }
 
+  public Player getPlayer(int number){
+    return this.players.get(number - 1);
+  }
+
   public Deck getDeck(){
     return this.deck;
   }
