@@ -4,10 +4,12 @@ public class OneCardWin implements RuleSet{
 
   int numberOfPlayers;
   int initialHandSize;
+  int cardsInEachDeal;
 
   public OneCardWin(){
     this.numberOfPlayers = 2;
     this.initialHandSize = 1;
+    this.cardsInEachDeal = 1;
   }
 
   public int numberOfPlayers(){
@@ -16,6 +18,10 @@ public class OneCardWin implements RuleSet{
 
   public int getInitialHandSize(){
     return this.initialHandSize;
+  }
+
+  public int numOfCardsInDeal(){
+    return this.cardsInEachDeal;
   }
 
   public Player selectWinner(Player player1, Player player2){

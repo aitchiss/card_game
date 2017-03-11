@@ -7,4 +7,6 @@ public interface RuleSet{
   public int getInitialHandSize();
 
   public Player selectWinner(Player player1, Player player2);
+
+  public int numOfCardsInDeal();
 }

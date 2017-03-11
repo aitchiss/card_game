@@ -44,6 +44,11 @@ public class TwoCardHighestTest{
   }
 
   @Test
+  public void normalDealIsTwoCards(){
+    assertEquals(2, ruleSet.numOfCardsInDeal());
+  }
+
+  @Test
   public void initialHandSizeDefined(){
     assertEquals(2, ruleSet.getInitialHandSize());
   }

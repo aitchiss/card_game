@@ -4,10 +4,12 @@ public class TwoCardHighest implements RuleSet{
 
   int numberOfPlayers;
   int initialHandSize;
+  int cardsInEachDeal;
 
   public TwoCardHighest(){
     this.numberOfPlayers = 2;
     this.initialHandSize = 2;
+    this.cardsInEachDeal = 2;
   }
 
   public int numberOfPlayers(){
@@ -16,6 +18,10 @@ public class TwoCardHighest implements RuleSet{
 
   public int getInitialHandSize(){
     return this.initialHandSize;
+  }
+
+  public int numOfCardsInDeal(){
+    return this.cardsInEachDeal;
   }
 
   public Player selectWinner(Player player1, Player player2){

@@ -30,6 +30,11 @@ public class OneCardWinTest{
   }
 
   @Test
+  public void normalDealIsOneCard(){
+    assertEquals(1, ruleSet.numOfCardsInDeal());
+  }
+
+  @Test
   public void initialHandSizeDefined(){
     assertEquals(1, ruleSet.getInitialHandSize());
   }
