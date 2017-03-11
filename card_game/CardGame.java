@@ -32,7 +32,9 @@ public class CardGame{
         System.out.println(this.winner.getName() + " wins!");
         gameWon = true;
       } else {
-        dealCards();
+        for (int i = 0; i < ruleSet.numOfCardsInDeal(); i++){
+          dealCards();
+        }
       }
     }
 
