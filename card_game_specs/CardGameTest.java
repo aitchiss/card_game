@@ -21,6 +21,12 @@ public class CardGameTest{
   }
 
   @Test
+  public void setupPlayersGivesPlayersNames(){
+    cardGame.setup();
+    assertEquals("Player 1", cardGame.getPlayer(1).getName());
+  }
+
+  @Test
   public void setupCreatesDeck(){
     cardGame.setupDeck();
     assertEquals(52, cardGame.getDeck().size());

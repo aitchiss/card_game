@@ -31,6 +31,12 @@ public class DeckTest{
     assertEquals(0, deck.size());
   }
 
+  @Test 
+  public void buildDeckCreatesStandardDeck(){
+    deck.buildDeck();
+    assertEquals(52, deck.size());
+  }
+
   @Test
   public void canAddToDeck(){
     deck.addToDeck(card1);

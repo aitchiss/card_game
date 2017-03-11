@@ -7,6 +7,16 @@ public class Deck{
 
   public Deck(){
     this.deckCards = new ArrayList<Card>();
+    
+  }
+
+  public void buildDeck(){
+    for (CardSuit suit : CardSuit.values()){
+      for (CardValue cardValue : CardValue.values()){
+        Card card = new Card(suit, cardValue);
+        this.deckCards.add(card);
+      }
+    }
   }
 
   public void addToDeck(Card card){

@@ -12,7 +12,7 @@ public class CardGame{
     this.ruleSet = ruleSet;
     this.players = new ArrayList<Player>();
     this.deck = new Deck();
-    this.handSize =ruleSet.getInitialHandSize();
+    this.handSize = ruleSet.getInitialHandSize();
   }
 
   public void setup(){
@@ -32,19 +32,14 @@ public class CardGame{
   }
 
   public void setupDeck(){
-    for (CardSuit suit : CardSuit.values()){
-      for (CardValue cardValue : CardValue.values()){
-        Card card = new Card(suit, cardValue);
-        this.deck.addToDeck(card);
-      }
-    }
+    this.deck.buildDeck();
     this.deck.shuffle();
   }
 
   public void setupPlayers(){
     int numberOfPlayers = this.ruleSet.numberOfPlayers();
     for (int i = 0; i < numberOfPlayers; i++){
-      Player player = new Player("Player" + (i + 1));
+      Player player = new Player("Player " + (i + 1));
       this.players.add(player);
     }
   }
