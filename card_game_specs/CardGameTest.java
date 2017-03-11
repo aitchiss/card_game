@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 import card_game.*;
+import org.mockito.*;
+import static org.mockito.Mockito.*;
 
 public class CardGameTest{
 
@@ -43,6 +45,15 @@ public class CardGameTest{
     cardGame.setup();
     assertEquals(1, cardGame.getPlayer(1).getHand().cardsInHand());
   }
+
+  @Test
+  public void playYieldsWinner(){
+    cardGame.setup();
+    cardGame.play();
+
+  }
+
+ 
 
 
 }

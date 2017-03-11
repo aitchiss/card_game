@@ -26,9 +26,12 @@ public class OneCardWin implements RuleSet{
     } else if (player2Card.getValue() > player1Card.getValue()){
       return player2;
     } else {
+      System.out.println("Both cards of same value - nobody wins!");
       return null;
     }
   }
+
+  
 
   
 

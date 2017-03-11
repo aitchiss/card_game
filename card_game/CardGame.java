@@ -7,12 +7,16 @@ public class CardGame{
   ArrayList<Player> players;
   Deck deck;
   int handSize;
+  Boolean gameWon;
+  Player winner;
 
   public CardGame(RuleSet ruleSet){
     this.ruleSet = ruleSet;
     this.players = new ArrayList<Player>();
     this.deck = new Deck();
     this.handSize = ruleSet.getInitialHandSize();
+    this.gameWon = false;
+    this.winner = null;
   }
 
   public void setup(){
@@ -21,12 +25,36 @@ public class CardGame{
     setupHands();
   }
 
+  public void play(){
+    while (gameWon == false){
+      this.winner = ruleSet.selectWinner(players.get(0), players.get(1));
+      if (this.winner != null){
+        System.out.println(this.winner.getName() + " wins!");
+        gameWon = true;
+      } else {
+        dealCards();
+      }
+    }
+
+  }
+
   public void setupHands(){
     for (int i = 0; i < this.handSize; i++){
       for (Player player : this.players){
         Card card = this.deck.dealCard();
         player.getHand().addToHand(card);
       }
+    }
+  }
+
+  public Player getWinner(){
+    return this.winner;
+  }
+
+  public void dealCards(){
+    for (Player player : this.players){
+      Card card = this.deck.dealCard();
+      player.getHand().addToHand(card);
     }
   }
 
