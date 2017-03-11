@@ -54,8 +54,20 @@ public class CardGameTest{
 
   @Test
   public void playYieldsWinner(){
-    cardGame.setup();
+    cardGame.setupPlayers();
+    cardGame.setupDeck();
+    Player player1 = cardGame.getPlayer(1);
+    Player player2 = cardGame.getPlayer(2);
+
+    Card card1 = new Card(CardSuit.HEARTS, CardValue.TEN);
+    Card card2 = new Card(CardSuit.HEARTS, CardValue.FIVE);
+
+    player1.getHand().addToHand(card1);
+    player2.getHand().addToHand(card2);
+
     cardGame.play();
+
+    assertEquals(player1, cardGame.getWinner());
 
   }
 
@@ -73,11 +85,28 @@ public class CardGameTest{
     assertEquals(2, twoCardHighestGame.getPlayer(1).getHand().cardsInHand());
   }
 
+
   @Test
+
   public void twoCardGameYieldsWinner(){
-    twoCardHighestGame.setup();
+    twoCardHighestGame.setupPlayers();
+    twoCardHighestGame.setupDeck();
+    Player player1 = twoCardHighestGame.getPlayer(1);
+    Player player2 = twoCardHighestGame.getPlayer(2);
+
+    Card card1 = new Card(CardSuit.HEARTS, CardValue.TEN);
+    Card card2 = new Card(CardSuit.HEARTS, CardValue.FIVE);
+
+    player1.getHand().addToHand(card1);
+    player1.getHand().addToHand(card1);
+    player2.getHand().addToHand(card2);
+    player2.getHand().addToHand(card2);
+
     twoCardHighestGame.play();
+
+    assertEquals(player1, twoCardHighestGame.getWinner());
   }
+  
 
  
 
