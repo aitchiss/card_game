@@ -22,8 +22,14 @@ public class CardGameTest{
 
   @Test
   public void setupCreatesDeck(){
-    cardGame.setup();
+    cardGame.setupDeck();
     assertEquals(52, cardGame.getDeck().size());
+  }
+
+  @Test
+  public void setupDealsFirstHand(){
+    cardGame.setup();
+    assertEquals(50, cardGame.getDeck().size());
   }
 
 

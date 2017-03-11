@@ -6,16 +6,29 @@ public class CardGame{
   RuleSet ruleSet;
   ArrayList<Player> players;
   Deck deck;
+  int handSize;
 
   public CardGame(RuleSet ruleSet){
     this.ruleSet = ruleSet;
     this.players = new ArrayList<Player>();
     this.deck = new Deck();
+    this.handSize =ruleSet.getInitialHandSize();
   }
 
   public void setup(){
     setupPlayers();
     setupDeck();
+    setupHands();
+  }
+
+  public void setupHands(){
+    for (int i = 0; i < this.handSize; i++){
+      for (Player player : this.players){
+        Card card = this.deck.dealCard();
+        player.getHand().addToHand(card);
+      }
+
+    }
   }
 
   public void setupDeck(){
@@ -26,7 +39,6 @@ public class CardGame{
       }
     }
     this.deck.shuffle();
-
   }
 
   public void setupPlayers(){
