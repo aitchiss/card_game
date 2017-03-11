@@ -6,7 +6,6 @@ public class CardGame{
   RuleSet ruleSet;
   ArrayList<Player> players;
   Deck deck;
-  int handSize;
   Boolean gameWon;
   Player winner;
 
@@ -14,7 +13,6 @@ public class CardGame{
     this.ruleSet = ruleSet;
     this.players = new ArrayList<Player>();
     this.deck = new Deck();
-    this.handSize = ruleSet.getInitialHandSize();
     this.gameWon = false;
     this.winner = null;
   }
@@ -41,7 +39,7 @@ public class CardGame{
   }
 
   public void setupHands(){
-    for (int i = 0; i < this.handSize; i++){
+    for (int i = 0; i < ruleSet.getInitialHandSize(); i++){
       for (Player player : this.players){
         Card card = this.deck.dealCard();
         player.getHand().addToHand(card);
