@@ -19,8 +19,8 @@ public class OneCardWin implements RuleSet{
   }
 
   public Player selectWinner(Player player1, Player player2){
-    Card player1Card = player1.getHand().removeCard();
-    Card player2Card = player2.getHand().removeCard();
+    Card player1Card = player1.playCard();
+    Card player2Card = player2.playCard();
     if (player1Card.getValue() > player2Card.getValue()){
       return player1;
     } else if (player2Card.getValue() > player1Card.getValue()){

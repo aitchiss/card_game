@@ -18,5 +18,9 @@ public class Player{
     return this.hand;
   }
 
+  public Card playCard(){
+    return this.hand.removeCard();
+  }
+
 
 }
