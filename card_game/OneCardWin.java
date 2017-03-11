@@ -18,4 +18,14 @@ public class OneCardWin implements RuleSet{
     return this.initialHandSize;
   }
 
+  public Card selectWinningCard(Card card1, Card card2){
+    if (card1.getValue() > card2.getValue()){
+      return card1;
+    } else if (card2.getValue() > card1.getValue()){
+      return card2;
+    } else {
+      return null;
+    }
+  }
+
 }

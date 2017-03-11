@@ -27,7 +27,6 @@ public class CardGame{
         Card card = this.deck.dealCard();
         player.getHand().addToHand(card);
       }
-
     }
   }
 
