@@ -5,6 +5,9 @@ import card_game.*;
 public class OneCardWinTest{
 
   RuleSet ruleSet;
+  Player player1;
+  Player player2;
+  Player player3;
   Card card1;
   Card card2;
 
@@ -13,6 +16,12 @@ public class OneCardWinTest{
     ruleSet = new OneCardWin();
     card1 = new Card(CardSuit.DIAMONDS, CardValue.FIVE);
     card2 = new Card(CardSuit.CLUBS, CardValue.TEN);
+    player1 = new Player("Player 1");
+    player2 = new Player("Player 2");
+    player3 = new Player("Player 3");
+    player1.getHand().addToHand(card1);
+    player2.getHand().addToHand(card2);
+    player3.getHand().addToHand(card2);
   }
 
   @Test
@@ -27,12 +36,12 @@ public class OneCardWinTest{
 
   @Test
   public void highestCardWins(){
-    assertEquals(card2, ruleSet.selectWinningCard(card1, card2));
+    assertEquals(player2, ruleSet.selectWinner(player1, player2));
   }
 
   @Test
   public void returnsNullIfNoWinner(){
-    assertEquals(null, ruleSet.selectWinningCard(card1, card1));
+    assertEquals(null, ruleSet.selectWinner(player2, player3));
   }
   
 }
