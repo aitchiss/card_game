@@ -74,7 +74,6 @@ public class TwoCardHighestTest{
     players.add(player3);
     Player winner = ruleSet.playAndSelectWinner(players, deck);
     assertNotNull(winner);
-    assertEquals(48, deck.size());
   }
 
 

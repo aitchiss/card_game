@@ -63,7 +63,6 @@ public class OneCardWinTest{
     players.add(player3);
     Player winner = ruleSet.playAndSelectWinner(players, deck);
     assertNotNull(winner);
-    assertEquals(50, deck.size());
   }
 
  

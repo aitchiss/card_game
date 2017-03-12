@@ -39,7 +39,7 @@ public class Blackjack implements RuleSet{
 
 
 //17 coded as threshold, since apparently dealer would have to abide by this rule normally
-  public Boolean playerDecidesHitOrNot(int currentTotal){
+  public Boolean hitOrNot(int currentTotal){
     if (currentTotal < 17){
       return true;
     } else {

@@ -24,17 +24,7 @@ public class CardGame{
   }
 
   public void play(){
-    // while (gameWon == false){
-    //   this.winner = ruleSet.selectWinner(players.get(0), players.get(1));
-    //   if (this.winner != null){
-    //     System.out.println(this.winner.getName() + " wins!");
-    //     gameWon = true;
-    //   } else {
-    //     for (int i = 0; i < ruleSet.numOfCardsInDeal(); i++){
-    //       this.deck.dealCardToPlayers(this.players);
-    //     }
-    //   }
-    // }
+  
     this.winner = this.ruleSet.playAndSelectWinner(this.players, this.deck);
     System.out.println(this.winner.getName() + " wins!");
 
