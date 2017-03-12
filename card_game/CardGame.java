@@ -13,7 +13,6 @@ public class CardGame{
     this.ruleSet = ruleSet;
     this.players = new ArrayList<Player>();
     this.deck = new Deck();
-    this.gameWon = false;
     this.winner = null;
   }
 
@@ -25,11 +24,13 @@ public class CardGame{
 
   public void play(){
 
-    
-  
     this.winner = this.ruleSet.playAndSelectWinner(this.players, this.deck);
-    System.out.println(this.winner.getName() + " wins!");
-
+    if (this.winner != null){
+      System.out.println(this.winner.getName() + " wins!");
+    } else{
+      System.out.println("No winner this time - Suzanne's blackjack code made you both go bust!");
+    }
+    
   }
 
   public void setupHands(){
