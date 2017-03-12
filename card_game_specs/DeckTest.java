@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 import card_game.*;
+import java.util.*;
 
 public class DeckTest{
 
@@ -47,6 +48,20 @@ public class DeckTest{
   public void canDealCard(){
     deck.addToDeck(card1);
     assertEquals(card1, deck.dealCard());
+  }
+
+  @Test
+  public void dealCardToPlayers(){
+    Player player1 = new Player("Player 1");
+    Player player2 = new Player("Player 2");
+    ArrayList<Player> players = new ArrayList<Player>();
+    players.add(player1);
+    players.add(player2);
+    deck.buildDeck();
+    deck.dealCardToPlayers(players);
+    assertEquals(1, player1.getHand().cardsInHand());
+
+
   }
 
  

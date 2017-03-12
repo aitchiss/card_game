@@ -31,7 +31,7 @@ public class CardGame{
         gameWon = true;
       } else {
         for (int i = 0; i < ruleSet.numOfCardsInDeal(); i++){
-          dealCards();
+          this.deck.dealCardToPlayers(this.players);
         }
       }
     }
@@ -51,12 +51,12 @@ public class CardGame{
     return this.winner;
   }
 
-  public void dealCards(){
-    for (Player player : this.players){
-      Card card = this.deck.dealCard();
-      player.getHand().addToHand(card);
-    }
-  }
+  // public void dealCards(){
+  //   for (Player player : this.players){
+  //     Card card = this.deck.dealCard();
+  //     player.getHand().addToHand(card);
+  //   }
+  // }
 
   public void setupDeck(){
     this.deck.buildDeck();
