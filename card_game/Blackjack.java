@@ -1,4 +1,5 @@
 package card_game;
+import java.util.*;
 
 public class Blackjack implements RuleSet{
 
@@ -24,7 +25,8 @@ public class Blackjack implements RuleSet{
     return this.cardsInEachDeal;
   }
 
-  public Player selectWinner(Player player1, Player player2){
+  public Player playAndSelectWinner(ArrayList<Player> players, Deck deck){
+    Player player1 = players.get(0);
     return player1; //just as placeholder for now!
   }
 

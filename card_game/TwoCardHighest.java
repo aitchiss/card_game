@@ -1,4 +1,5 @@
 package card_game;
+import java.util.*;
 
 public class TwoCardHighest implements RuleSet{
 
@@ -24,24 +25,35 @@ public class TwoCardHighest implements RuleSet{
     return this.cardsInEachDeal;
   }
 
-  public Player selectWinner(Player player1, Player player2){
-    Card player1Card1 = player1.playCard();
-    Card player1Card2 = player1.playCard();
-    int player1Total = player1Card1.getValue() + player1Card2.getValue();
+  public Player playAndSelectWinner(ArrayList<Player> players, Deck deck){
+    
+    Player player1 = players.get(0);
+    Player player2 = players.get(1);
 
-    Card player2Card1 = player2.playCard();
-    Card player2Card2 = player2.playCard();
-    int player2Total = player2Card1.getValue() + player2Card2.getValue();
+    Player winner = null;
 
-    if (player1Total > player2Total){
-      return player1;
-    } else if (player2Total > player1Total){
-      return player2;
-    } else{
-      System.out.println("Both players scored the same - nobody wins!");
-      return null;
+    while (winner == null){
+      int player1Total = getPlayerHandTotal(player1);
+      int player2Total = getPlayerHandTotal(player2);
+
+      if (player1Total > player2Total){
+        winner = player1;
+      } else if (player2Total > player1Total){
+        winner = player2;
+      } else{
+        deck.dealCardToAllPlayers(players);
+        deck.dealCardToAllPlayers(players);
+      }
     }
-
+    return winner;
 
   }
+
+  public int getPlayerHandTotal(Player player){
+    Card playerCard1 = player.playCard();
+    Card playerCard2 = player.playCard();
+    int playerTotal = playerCard1.getValue() + playerCard2.getValue();
+    return playerTotal;
+  }
+
 }

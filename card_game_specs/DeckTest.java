@@ -51,14 +51,14 @@ public class DeckTest{
   }
 
   @Test
-  public void dealCardToPlayers(){
+  public void dealCardToAllPlayers(){
     Player player1 = new Player("Player 1");
     Player player2 = new Player("Player 2");
     ArrayList<Player> players = new ArrayList<Player>();
     players.add(player1);
     players.add(player2);
     deck.buildDeck();
-    deck.dealCardToPlayers(players);
+    deck.dealCardToAllPlayers(players);
     assertEquals(1, player1.getHand().cardsInHand());
 
 

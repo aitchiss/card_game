@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 import card_game.*;
+import java.util.*;
 
 public class TwoCardHighestTest{
 
@@ -11,6 +12,7 @@ public class TwoCardHighestTest{
   Card card1;
   Card card2;
   Card card3;
+  Deck deck;
 
   @Before
   public void before(){
@@ -19,6 +21,9 @@ public class TwoCardHighestTest{
     card1 = new Card(CardSuit.DIAMONDS, CardValue.TWO);
     card2 = new Card(CardSuit.SPADES, CardValue.TEN);
     card3 = new Card(CardSuit.HEARTS, CardValue.QUEEN);
+
+    deck = new Deck();
+    deck.buildDeck();
 
     player1 = new Player("Player 1");
     player2 = new Player("Player 2");
@@ -55,12 +60,22 @@ public class TwoCardHighestTest{
 
   @Test
   public void greatestValueHandWins(){
-    assertEquals(player2, ruleSet.selectWinner(player1, player2));
+    ArrayList<Player> players = new ArrayList<Player>();
+    players.add(player1);
+    players.add(player2);
+    assertEquals(player2, ruleSet.playAndSelectWinner(players, deck));
   }
 
   @Test
-  public void returnsNullIfNoWinner(){
-    assertEquals(null, ruleSet.selectWinner(player2, player3));
+
+  public void continuesToDealAndPlayIfHandsEqual(){
+    ArrayList<Player> players = new ArrayList<Player>();
+    players.add(player2);
+    players.add(player3);
+    Player winner = ruleSet.playAndSelectWinner(players, deck);
+    assertNotNull(winner);
+    assertEquals(48, deck.size());
   }
+
 
 }

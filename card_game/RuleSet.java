@@ -1,4 +1,5 @@
 package card_game;
+import java.util.*;
 
 public interface RuleSet{
 
@@ -6,7 +7,7 @@ public interface RuleSet{
 
   public int getInitialHandSize();
 
-  public Player selectWinner(Player player1, Player player2);
+  public Player playAndSelectWinner(ArrayList<Player> players, Deck deck);
 
   public int numOfCardsInDeal();
 }
