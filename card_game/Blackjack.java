@@ -37,6 +37,24 @@ public class Blackjack implements RuleSet{
     return totalHandValue;
   }
 
+  public int getBlackJackValue(Card card){
+    int normalCardValue = card.getValue();
+    int blackjackValue;
+    switch (normalCardValue){
+      case 1: blackjackValue = 11;
+              break;
+      case 11: blackjackValue = 10;
+              break;
+      case 12: blackjackValue = 10;
+              break;
+      case 13: blackjackValue = 10;
+              break;
+      default: blackjackValue = normalCardValue;
+              break;
+    }
+    return blackjackValue;
+  }
+
 
 //17 coded as threshold, since apparently dealer would have to abide by this rule normally
   public Boolean hitOrNot(int currentTotal){

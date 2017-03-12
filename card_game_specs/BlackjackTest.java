@@ -65,4 +65,21 @@ public class BlackjackTest{
     assertEquals(false, blackjack.hitOrNot(18));
   }
 
+  @Test
+  public void kingHasValueTen(){
+    Card card = new Card(CardSuit.HEARTS, CardValue.KING);
+    assertEquals(10, blackjack.getBlackJackValue(card));
+  }
+
+  @Test
+  public void aceHasValueEleven(){
+    Card card = new Card(CardSuit.HEARTS, CardValue.ACE);
+    assertEquals(11, blackjack.getBlackJackValue(card));
+  }
+
+  @Test
+  public void fiveStillHasValueFive(){
+    assertEquals(5, blackjack.getBlackJackValue(card1));
+  }
+
 }
