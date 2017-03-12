@@ -51,12 +51,6 @@ public class CardGame{
     return this.winner;
   }
 
-  // public void dealCards(){
-  //   for (Player player : this.players){
-  //     Card card = this.deck.dealCard();
-  //     player.getHand().addToHand(card);
-  //   }
-  // }
 
   public void setupDeck(){
     this.deck.buildDeck();
