@@ -31,6 +31,11 @@ public class Deck{
     return deckCards.remove(0);
   }
 
+  public void dealCardToPlayer(Player player){
+    Card card = dealCard();
+    player.getHand().addToHand(card);
+  }
+
   public void dealCardToAllPlayers(ArrayList<Player> players){
     for (Player player : players){
       Card card = dealCard();

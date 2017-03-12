@@ -12,6 +12,7 @@ public class BlackjackTest{
   ArrayList<Player> players;
   Card card1;
   Card card2;
+  Card card3;
   Blackjack blackjack;
 
   @Before
@@ -29,6 +30,7 @@ public class BlackjackTest{
 
     card1 = new Card(CardSuit.DIAMONDS, CardValue.FIVE);
     card2 = new Card(CardSuit.CLUBS, CardValue.TEN);
+    card3 = new Card(CardSuit.CLUBS, CardValue.ACE);
 
     player1.getHand().addToHand(card1);
     player1.getHand().addToHand(card2);
@@ -52,7 +54,7 @@ public class BlackjackTest{
 
   @Test 
   public void countInitialHand(){
-    assertEquals(15, blackjack.playerCountInitialHand(player1));
+    assertEquals(15, blackjack.countValueOfHand(player1));
   }
 
   @Test
@@ -68,18 +70,41 @@ public class BlackjackTest{
   @Test
   public void kingHasValueTen(){
     Card card = new Card(CardSuit.HEARTS, CardValue.KING);
-    assertEquals(10, blackjack.getBlackJackValue(card));
+    assertEquals(10, blackjack.getBlackjackValue(card));
   }
 
   @Test
   public void aceHasValueEleven(){
     Card card = new Card(CardSuit.HEARTS, CardValue.ACE);
-    assertEquals(11, blackjack.getBlackJackValue(card));
+    assertEquals(11, blackjack.getBlackjackValue(card));
   }
 
   @Test
   public void fiveStillHasValueFive(){
-    assertEquals(5, blackjack.getBlackJackValue(card1));
+    assertEquals(5, blackjack.getBlackjackValue(card1));
+  }
+
+  @Test
+  public void playersFinalTotalAtLeastSeventeen(){
+    blackjack.playerBuildsFinalTotal(player1, deck);
+    int finalHandValue = blackjack.countValueOfHand(player1);
+    Boolean biggerThanSixteen = (finalHandValue > 16);
+    assertEquals(true, biggerThanSixteen);
+  }
+
+  @Test
+  public void bustOverTwentyOne(){
+    player1.getHand().addToHand(card2);
+    assertEquals(true, blackjack.bustOrNot(player1));
+  }
+
+  @Test
+  public void countsLowAcesTotal(){
+    player1.getHand().addToHand(card3);
+    int finalHandValue = blackjack.buildFinalTotalLowAces(player1, deck);
+    int cardsInHand = player1.getHand().cardsInHand();
+    Boolean cardsInHandIncreased = (cardsInHand > 3);
+    assertEquals(true, cardsInHandIncreased);
   }
 
 }

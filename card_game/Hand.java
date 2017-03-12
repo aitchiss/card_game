@@ -21,4 +21,10 @@ public class Hand{
     return this.currentHand.remove(0);
   }
 
+  public ArrayList<Card> returnAllCards(){
+    return this.currentHand;
+  }
+
+
+
 }
